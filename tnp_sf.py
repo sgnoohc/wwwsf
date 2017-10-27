@@ -13,7 +13,7 @@ tnpdirs=["/home/users/phchang/public_html/phys/tnp/CMSSW_7_4_2/src/TagAndProbe/A
 "/home/users/phchang/public_html/phys/tnp/CMSSW_7_4_2/src/TagAndProbe/Analysis/plots/MuonID_WWW/muon/MuTightVVV_MuTightVVVMu17/",
 ]
 
-def tnp_sf(tnpdir):
+def tnp_sf(tnpdir, usedataeff=False):
 
     tnpdir = os.path.normpath(tnpdir)
     idtype = os.path.basename(tnpdir)
@@ -45,9 +45,15 @@ def tnp_sf(tnpdir):
     sf = data_eff.Clone("sf")
     sf.Divide(data_eff, dy_eff)
 
-    printsf.printsf_th2(funcname, sf, xvarabs=True)
+    if usedataeff:
+        printsf.printsf_th2(funcname, data_eff, xvarabs=True)
+    else:
+        printsf.printsf_th2(funcname, sf, xvarabs=True)
 
 for tnpdir in tnpdirs:
-    tnp_sf(tnpdir)
+    if tnpdir.find("Mu8") != -1 or tnpdir.find("Mu17") != -1 or tnpdir.find("Ele12") != -1 or tnpdir.find("EleLead") != -1:
+        tnp_sf(tnpdir, True)
+    else:
+        tnp_sf(tnpdir)
 
 #eof
