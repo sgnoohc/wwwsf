@@ -1,7 +1,8 @@
 float lepsf_EGammaTightID(float pt, float eta, int isyst=0)
 {
-    if (isyst != 1 && isyst != -1 && isyst != 0)        printf(Form("WARNING - in function=%s, isyst=%d is not recommended!
-", __FUNCTION__, isyst));    if ((pt) < 20.0 && fabs(eta) < -2.0) return 0.806557357311 + isyst * 0.0180196290542;
+    if (isyst != 1 && isyst != -1 && isyst != 0)
+        printf(Form("WARNING - in function=%s, isyst=%d is not recommended!\n", __FUNCTION__, isyst));
+    if ((pt) < 20.0 && fabs(eta) < -2.0) return 0.806557357311 + isyst * 0.0180196290542;
     if ((pt) < 35.0 && fabs(eta) < -2.0) return 0.88245934248 + isyst * 0.0101198259436;
     if ((pt) < 50.0 && fabs(eta) < -2.0) return 0.918840587139 + isyst * 0.00903908258991;
     if ((pt) < 90.0 && fabs(eta) < -2.0) return 0.940397322178 + isyst * 0.00700136278822;
@@ -66,8 +67,9 @@ float lepsf_EGammaTightID(float pt, float eta, int isyst=0)
 
 float lepsf_EGammaReco(float pt, float eta, int isyst=0)
 {
-    if (isyst != 1 && isyst != -1 && isyst != 0)        printf(Form("WARNING - in function=%s, isyst=%d is not recommended!
-", __FUNCTION__, isyst));    if ((pt) < 500.0 && fabs(eta) < -2.45) return 1.31760430336 + isyst * 0.0182387273858;
+    if (isyst != 1 && isyst != -1 && isyst != 0)
+        printf(Form("WARNING - in function=%s, isyst=%d is not recommended!\n", __FUNCTION__, isyst));
+    if ((pt) < 500.0 && fabs(eta) < -2.45) return 1.31760430336 + isyst * 0.0182387273858;
     if ((pt) < 500.0 && fabs(eta) < -2.4) return 1.11378002167 + isyst * 0.0110667218714;
     if ((pt) < 500.0 && fabs(eta) < -2.3) return 1.02462530136 + isyst * 0.00815834887034;
     if ((pt) < 500.0 && fabs(eta) < -2.2) return 1.013641119 + isyst * 0.00713343470588;
@@ -102,8 +104,9 @@ float lepsf_EGammaReco(float pt, float eta, int isyst=0)
 
 float lepsf_MuonMediumID_PeriodBCDEF(float pt, float eta, int isyst=0)
 {
-    if (isyst != 1 && isyst != -1 && isyst != 0)        printf(Form("WARNING - in function=%s, isyst=%d is not recommended!
-", __FUNCTION__, isyst));    if ((pt) < 25.0 && fabs(eta) < 0.9) return 0.99326056242 + isyst * 0.00299304959529;
+    if (isyst != 1 && isyst != -1 && isyst != 0)
+        printf(Form("WARNING - in function=%s, isyst=%d is not recommended!\n", __FUNCTION__, isyst));
+    if ((pt) < 25.0 && fabs(eta) < 0.9) return 0.99326056242 + isyst * 0.00299304959529;
     if ((pt) < 30.0 && fabs(eta) < 0.9) return 0.993243694305 + isyst * 0.013774752384;
     if ((pt) < 40.0 && fabs(eta) < 0.9) return 0.999212145805 + isyst * 0.0122670982741;
     if ((pt) < 50.0 && fabs(eta) < 0.9) return 0.996031761169 + isyst * 0.000219301615914;
@@ -132,8 +135,9 @@ float lepsf_MuonMediumID_PeriodBCDEF(float pt, float eta, int isyst=0)
 
 float lepsf_MuonMediumID_PeriodGH(float pt, float eta, int isyst=0)
 {
-    if (isyst != 1 && isyst != -1 && isyst != 0)        printf(Form("WARNING - in function=%s, isyst=%d is not recommended!
-", __FUNCTION__, isyst));    if ((pt) < 25.0 && fabs(eta) < 0.9) return 1.00160014629 + isyst * 0.00248764356599;
+    if (isyst != 1 && isyst != -1 && isyst != 0)
+        printf(Form("WARNING - in function=%s, isyst=%d is not recommended!\n", __FUNCTION__, isyst));
+    if ((pt) < 25.0 && fabs(eta) < 0.9) return 1.00160014629 + isyst * 0.00248764356599;
     if ((pt) < 30.0 && fabs(eta) < 0.9) return 0.996136546135 + isyst * 0.0110811851285;
     if ((pt) < 40.0 && fabs(eta) < 0.9) return 1.00226068497 + isyst * 0.000461913558683;
     if ((pt) < 50.0 && fabs(eta) < 0.9) return 0.999405801296 + isyst * 0.000193286700103;
@@ -160,10 +164,30 @@ float lepsf_MuonMediumID_PeriodGH(float pt, float eta, int isyst=0)
     return 1;
 }
 
+float lepsf_MuonReco(float eta, float nothing, int isyst=0)
+{
+    if (isyst != 1 && isyst != -1 && isyst != 0)
+        printf(Form("WARNING - in function=%s, isyst=%d is not recommended!\n", __FUNCTION__, isyst));
+    if (fabs(eta) < 0.2 && fabs(nothing) < 1000000) return 0.996996496582 + isyst * 7.27173381037e-05;
+    if (fabs(eta) < 0.4 && fabs(nothing) < 1000000) return 0.99771175854 + isyst * 8.20493871853e-05;
+    if (fabs(eta) < 0.6 && fabs(nothing) < 1000000) return 0.99807762769 + isyst * 7.15881829855e-05;
+    if (fabs(eta) < 0.8 && fabs(nothing) < 1000000) return 0.997803871488 + isyst * 7.4350908861e-05;
+    if (fabs(eta) < 1.0 && fabs(nothing) < 1000000) return 0.99797080488 + isyst * 0.000106158649569;
+    if (fabs(eta) < 1.2 && fabs(nothing) < 1000000) return 0.997147740951 + isyst * 0.000186466741555;
+    if (fabs(eta) < 1.4 && fabs(nothing) < 1000000) return 0.996227437404 + isyst * 0.000181630468798;
+    if (fabs(eta) < 1.6 && fabs(nothing) < 1000000) return 0.995478609224 + isyst * 0.00017062499716;
+    if (fabs(eta) < 1.8 && fabs(nothing) < 1000000) return 0.995780818567 + isyst * 0.000176732421664;
+    if (fabs(eta) < 2.0 && fabs(nothing) < 1000000) return 0.99389185437 + isyst * 0.000234784307893;
+    if (fabs(eta) < 2.2 && fabs(nothing) < 1000000) return 0.992942696013 + isyst * 0.000330644022311;
+    if (fabs(eta) < 2.4 && fabs(nothing) < 1000000) return 0.987313312455 + isyst * 0.000859346400986;
+    return 1;
+}
+
 float lepsf_EGammaTightPOG_EGammaVVV(float pt, float eta, int isyst=0)
 {
-    if (isyst != 1 && isyst != -1 && isyst != 0)        printf(Form("WARNING - in function=%s, isyst=%d is not recommended!
-", __FUNCTION__, isyst));    if ((pt) < 30.0 && fabs(eta) < 1.0) return 0.980376899242 + isyst * 0.00382222977557;
+    if (isyst != 1 && isyst != -1 && isyst != 0)
+        printf(Form("WARNING - in function=%s, isyst=%d is not recommended!\n", __FUNCTION__, isyst));
+    if ((pt) < 30.0 && fabs(eta) < 1.0) return 0.980376899242 + isyst * 0.00382222977557;
     if ((pt) < 40.0 && fabs(eta) < 1.0) return 0.981454670429 + isyst * 0.00193882357048;
     if ((pt) < 50.0 && fabs(eta) < 1.0) return 0.980952382088 + isyst * 0.00163532483243;
     if ((pt) < 2000.0 && fabs(eta) < 1.0) return 0.976341068745 + isyst * 0.00282505650216;
@@ -188,8 +212,9 @@ float lepsf_EGammaTightPOG_EGammaVVV(float pt, float eta, int isyst=0)
 
 float lepsf_EGammaVVV_EGammaVVVEle12(float pt, float eta, int isyst=0)
 {
-    if (isyst != 1 && isyst != -1 && isyst != 0)        printf(Form("WARNING - in function=%s, isyst=%d is not recommended!
-", __FUNCTION__, isyst));    if ((pt) < 30.0 && fabs(eta) < 1.0) return 1.01243853569 + isyst * 0.00415810225751;
+    if (isyst != 1 && isyst != -1 && isyst != 0)
+        printf(Form("WARNING - in function=%s, isyst=%d is not recommended!\n", __FUNCTION__, isyst));
+    if ((pt) < 30.0 && fabs(eta) < 1.0) return 1.01243853569 + isyst * 0.00415810225751;
     if ((pt) < 40.0 && fabs(eta) < 1.0) return 1.01314127445 + isyst * 0.00220955795264;
     if ((pt) < 50.0 && fabs(eta) < 1.0) return 1.01340222359 + isyst * 0.00153488639642;
     if ((pt) < 2000.0 && fabs(eta) < 1.0) return 1.01799964905 + isyst * 0.0030709442108;
@@ -214,8 +239,9 @@ float lepsf_EGammaVVV_EGammaVVVEle12(float pt, float eta, int isyst=0)
 
 float lepsf_EGammaVVV_EGammaVVVEleLead(float pt, float eta, int isyst=0)
 {
-    if (isyst != 1 && isyst != -1 && isyst != 0)        printf(Form("WARNING - in function=%s, isyst=%d is not recommended!
-", __FUNCTION__, isyst));    if ((pt) < 30.0 && fabs(eta) < 1.0) return 0.973178207874 + isyst * 0.0040103121406;
+    if (isyst != 1 && isyst != -1 && isyst != 0)
+        printf(Form("WARNING - in function=%s, isyst=%d is not recommended!\n", __FUNCTION__, isyst));
+    if ((pt) < 30.0 && fabs(eta) < 1.0) return 0.973178207874 + isyst * 0.0040103121406;
     if ((pt) < 40.0 && fabs(eta) < 1.0) return 1.01313531399 + isyst * 0.00222550242336;
     if ((pt) < 50.0 && fabs(eta) < 1.0) return 1.01339864731 + isyst * 0.00175534598448;
     if ((pt) < 2000.0 && fabs(eta) < 1.0) return 1.01799964905 + isyst * 0.0030709442108;
@@ -240,8 +266,9 @@ float lepsf_EGammaVVV_EGammaVVVEleLead(float pt, float eta, int isyst=0)
 
 float lepsf_MuMediumPOG_MuTightVVV(float pt, float eta, int isyst=0)
 {
-    if (isyst != 1 && isyst != -1 && isyst != 0)        printf(Form("WARNING - in function=%s, isyst=%d is not recommended!
-", __FUNCTION__, isyst));    if ((pt) < 25.0 && fabs(eta) < 0.9) return 0.972987830639 + isyst * 0.0038003901295;
+    if (isyst != 1 && isyst != -1 && isyst != 0)
+        printf(Form("WARNING - in function=%s, isyst=%d is not recommended!\n", __FUNCTION__, isyst));
+    if ((pt) < 25.0 && fabs(eta) < 0.9) return 0.972987830639 + isyst * 0.0038003901295;
     if ((pt) < 30.0 && fabs(eta) < 0.9) return 0.980633199215 + isyst * 0.00260697870217;
     if ((pt) < 40.0 && fabs(eta) < 0.9) return 0.986259222031 + isyst * 0.00133423658569;
     if ((pt) < 50.0 && fabs(eta) < 0.9) return 0.989767193794 + isyst * 0.00124355006164;
@@ -278,8 +305,9 @@ float lepsf_MuMediumPOG_MuTightVVV(float pt, float eta, int isyst=0)
 
 float lepsf_MuTightVVV_MuTightVVVMu8(float pt, float eta, int isyst=0)
 {
-    if (isyst != 1 && isyst != -1 && isyst != 0)        printf(Form("WARNING - in function=%s, isyst=%d is not recommended!
-", __FUNCTION__, isyst));    if ((pt) < 25.0 && fabs(eta) < 0.9) return 0.999541461468 + isyst * 0.00431553026237;
+    if (isyst != 1 && isyst != -1 && isyst != 0)
+        printf(Form("WARNING - in function=%s, isyst=%d is not recommended!\n", __FUNCTION__, isyst));
+    if ((pt) < 25.0 && fabs(eta) < 0.9) return 0.999541461468 + isyst * 0.00431553026237;
     if ((pt) < 30.0 && fabs(eta) < 0.9) return 0.997860491276 + isyst * 0.0028927840418;
     if ((pt) < 40.0 && fabs(eta) < 0.9) return 0.997504532337 + isyst * 0.00120918728177;
     if ((pt) < 50.0 && fabs(eta) < 0.9) return 0.996784865856 + isyst * 0.00126254361911;
@@ -316,8 +344,9 @@ float lepsf_MuTightVVV_MuTightVVVMu8(float pt, float eta, int isyst=0)
 
 float lepsf_MuTightVVV_MuTightVVVMu17(float pt, float eta, int isyst=0)
 {
-    if (isyst != 1 && isyst != -1 && isyst != 0)        printf(Form("WARNING - in function=%s, isyst=%d is not recommended!
-", __FUNCTION__, isyst));    if ((pt) < 25.0 && fabs(eta) < 0.9) return 0.990568935871 + isyst * 0.00428578853702;
+    if (isyst != 1 && isyst != -1 && isyst != 0)
+        printf(Form("WARNING - in function=%s, isyst=%d is not recommended!\n", __FUNCTION__, isyst));
+    if ((pt) < 25.0 && fabs(eta) < 0.9) return 0.990568935871 + isyst * 0.00428578853702;
     if ((pt) < 30.0 && fabs(eta) < 0.9) return 0.989429354668 + isyst * 0.00240011944288;
     if ((pt) < 40.0 && fabs(eta) < 0.9) return 0.989176571369 + isyst * 0.00143115699909;
     if ((pt) < 50.0 && fabs(eta) < 0.9) return 0.988689124584 + isyst * 0.00138855122597;
