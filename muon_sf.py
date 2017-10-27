@@ -16,4 +16,6 @@ reco_hist = reco_file.Get("ratio_eff_aeta_dr030e030_corr")
 printsf.printsf_th2("lepsf_MuonMediumID_PeriodBCDEF", id_hist_1, xvarabs=True)
 printsf.printsf_th2("lepsf_MuonMediumID_PeriodGH", id_hist_2, xvarabs=True)
 
+printsf.printsf_tgraph1d("lepsf_MuonReco", reco_hist, yvar="eta", xvar="nothing", yvarabs=True, xvarabs=True)
+
 #eof
